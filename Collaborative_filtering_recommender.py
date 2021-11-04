@@ -34,10 +34,9 @@ class CF_Recommender():
         # merged = self.cf_clicks_db.merge(pd.DataFrame(self.dup_list, columns=['duplicate']), how = 'left', left_index=True, right_index=True)
         self.cf_clicks_db = self.cf_clicks_db.groupby(['user_id', 'click_article_id'])['cf_weight'].sum().reset_index()
         self.data = Dataset.load_from_df(self.cf_clicks_db, self.reader)
-        self.trainset, self.testset = train_test_split(self.data, test_size=.15)
-        self.algo.fit(self.trainset)
-        predictions = self.algo.test(self.testset)       
-        return self.algo, accuracy.rmse(predictions)
+        self.trainset = self.data.build_full_trainset
+        self.algo.fit(self.trainset)     
+        return self.algo
 
     def predict_for_user(self, user_id):
         predictions={}
