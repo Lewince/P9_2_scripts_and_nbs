@@ -30,7 +30,7 @@ class CF_Recommender():
     
     
     def fit_evaluate(self):
-        self.cf_clicks_db = self.cf_user_weights(self.clicks_data)
+        self.cf_clicks_db = self.cf_user_weights()
         # merged = self.cf_clicks_db.merge(pd.DataFrame(self.dup_list, columns=['duplicate']), how = 'left', left_index=True, right_index=True)
         self.cf_clicks_db = self.cf_clicks_db.groupby(['user_id', 'click_article_id'])['cf_weight'].sum().reset_index()
         self.data = Dataset.load_from_df(self.cf_clicks_db, self.reader)
