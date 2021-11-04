@@ -60,5 +60,5 @@ class CF_Recommender():
             hits.append((predictions[i].iid, predictions[i].est))   
         hits.sort(key=lambda x: x[1], reverse=True)
         selection = [hits[i][0] for i in range(len(hits))]
-        return selection[top_n:]
+        return selection[:top_n]
         
