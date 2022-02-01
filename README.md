@@ -1,2 +1,2 @@
 # P9_scripts_and_nbs
-Openclassrooms project on Globo Dataset - recommender systems and dataset processing Python scripts for android app
+Openclassrooms project on Globo Dataset - recommender systems and dataset processing Python scripts for Android app
