@@ -5,14 +5,8 @@ import os
 from sklearn.preprocessing import StandardScaler
 
 if __name__ == '__main__':
-    data_dir = 'C://users//Lewin//Downloads//OC//Projet_9//Data'
+    data_dir = 'YOURDATADIRECTORYHERE'
     meta = pd.read_csv(data_dir+'/articles_metadata.csv')
-#     clicks = pd.read_csv(data_dir+'/clicks_sample.csv')
-#     consumptions = pd.DataFrame(clicks.click_article_id.value_counts().head(15)).rename(columns={'click_article_id':'Total Clicks'}) 
-#     consumptions.index.names = ['Article_id']
-#     article_consumptions = clicks.loc[:,['user_id','click_article_id']].groupby('user_id').agg('count')
-#     article_consumptions = pd.DataFrame(article_consumptions.value_counts()).rename(columns={0: 'Number_of_Readers'})
-#     article_consumptions.index.names = ['Articles_consumed']
 
     # Ouverture des embeddings, ajout de la catégorie encodée one-hot, du ts de création et de la longueur de l'article normalisés : 
     with open(data_dir+"/articles_embeddings.pickle", "rb") as input_file: 
